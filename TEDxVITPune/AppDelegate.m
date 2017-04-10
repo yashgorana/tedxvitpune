@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
-#import "MasterViewController.h"
+#import "ScanDataTableViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -19,14 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
-
-    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    
+    // Global list of scanned attendees
+    self.TEDxVITPuneAttendees = [self decodeDictionaryFromDocumentsDirectoryFile:kScannedAttendees];
+    if (self.TEDxVITPuneAttendees == nil) {
+        self.TEDxVITPuneAttendees = [[NSMutableDictionary alloc] init];
+    }
     return YES;
 }
 
@@ -54,22 +51,116 @@
     [self saveContext];
 }
 
-#pragma mark - Split view
+- (void) encodeDictionary:(NSMutableDictionary*)dict toDocumentsDirectoryFile:(NSString*)fileName {
+    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:fileName];
+    [dict writeToFile:filePath atomically:NO];
+}
 
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
-    }
+- (NSMutableDictionary*) decodeDictionaryFromDocumentsDirectoryFile:(NSString*)fileName {
+    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:fileName];
+    return [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
 }
 
 #pragma mark - Core Data stack
-
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+- (NSInteger) getScanCountForTEDxID:(NSString*)tedxID forScanType:(NSInteger)type {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"TEDxQRScan"];
+    request.predicate = [NSPredicate predicateWithFormat:@"(tedxID) == %@ AND (type == %ld)", tedxID, type];
+    NSError *error = nil;
+    NSArray *result=[self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        return -1;
+    }
+    return result.count;
+}
+
+- (NSInteger) enterDataWithAttendeeInfo:(NSDictionary*)info timestamp:(NSString*)timestamp scanType:(NSInteger)type {
+    NSString *tedxID =[info objectForKey:@"id"];
+    NSString *name = [info objectForKey:@"name"];
+    NSString *surname = [info objectForKey:@"surname"];
+    
+    if (info == nil || tedxID == nil || name == nil || surname == nil) {
+        return -1;
+    }
+    
+    // Add to TEDxVITPuneAttendees mutable dictionary and persist it
+    [self.TEDxVITPuneAttendees setObject:[NSString stringWithFormat:@"%@ %@", name, surname] forKey:tedxID];
+    [self encodeDictionary:self.TEDxVITPuneAttendees toDocumentsDirectoryFile:kScannedAttendees];
+    
+    // Add to core data
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"TEDxQRScan" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *entry = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    [entry setValue:tedxID forKey: @"tedxID"];
+    [entry setValue:timestamp forKey: @"timestamp"];
+    [entry setValue:[NSNumber numberWithInteger:type] forKey: @"type"];
+
+    NSError *error = nil;
+    if ( ![entry.managedObjectContext save:&error] ) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    } else {
+        NSLog(@"Type-%ld scan for %@", type, [self.TEDxVITPuneAttendees objectForKey:tedxID]);
+        [self saveContext];
+    }
+    
+    return 0;
+}
+
+-(void) logData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TEDxQRScan" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+        
+    } else {
+        if (result.count > 0) {
+            for (NSManagedObject *entry in result) {
+                NSLog(@"%@ -> %@ @ %@", [self.TEDxVITPuneAttendees objectForKey:[entry valueForKey:@"tedxID"]], [entry valueForKey:@"type"], [entry valueForKey:@"timestamp"]);
+            }
+        }
+    }
+
+}
+
+- (void) resetCoreData {
+    NSPersistentStore *store = [self.persistentStoreCoordinator.persistentStores lastObject];
+    NSError *error;
+    NSURL *storeURL = store.URL;
+    NSPersistentStoreCoordinator *storeCoordinator = self.persistentStoreCoordinator;
+    [storeCoordinator removePersistentStore:store error:&error];
+    [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:&error];
+    //    Then, just add the persistent store back to ensure it is recreated properly.
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *scannedAttendees = [documentsPath stringByAppendingPathComponent:kScannedAttendees];
+    if([fileManager removeItemAtPath:scannedAttendees error:&error]) {
+        NSLog(@"Could not delete %@ -:%@ ", kScannedAttendees, [error localizedDescription]);
+    }
+    error = nil;
+    
+    
+    [NSThread sleepForTimeInterval:1];
+    exit(0);
+}
+
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.TEDxVITPune" in the application's documents directory.

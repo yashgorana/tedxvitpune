@@ -7,30 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D33544461C46CBFB00C3D905 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33544451C46CBFB00C3D905 /* HomeViewController.m */; };
+		D38129971CB1BC4C00FC3C4E /* ScanDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38129961CB1BC4C00FC3C4E /* ScanDataTableViewController.m */; };
+		D38129991CB1BF5500FC3C4E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38129981CB1BF5500FC3C4E /* CoreData.framework */; };
 		D3A4DF751C468B80000BAFEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DF741C468B80000BAFEA /* main.m */; };
 		D3A4DF781C468B80000BAFEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DF771C468B80000BAFEA /* AppDelegate.m */; };
 		D3A4DF7B1C468B80000BAFEA /* TEDxVITPune.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DF791C468B80000BAFEA /* TEDxVITPune.xcdatamodeld */; };
-		D3A4DF7E1C468B80000BAFEA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DF7D1C468B80000BAFEA /* MasterViewController.m */; };
-		D3A4DF811C468B80000BAFEA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DF801C468B80000BAFEA /* DetailViewController.m */; };
 		D3A4DF841C468B80000BAFEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A4DF821C468B80000BAFEA /* Main.storyboard */; };
 		D3A4DF861C468B80000BAFEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3A4DF851C468B80000BAFEA /* Assets.xcassets */; };
 		D3A4DF891C468B80000BAFEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A4DF871C468B80000BAFEA /* LaunchScreen.storyboard */; };
+		D3BA16801C480DFB009BA603 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BA167F1C480DFB009BA603 /* AudioToolbox.framework */; };
+		D3EC597B1C5C9DED00069C12 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC59711C5C9DED00069C12 /* QRCameraSwitchButton.m */; };
+		D3EC597C1C5C9DED00069C12 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC59731C5C9DED00069C12 /* QRCodeReader.m */; };
+		D3EC597D1C5C9DED00069C12 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC59761C5C9DED00069C12 /* QRCodeReaderView.m */; };
+		D3EC597E1C5C9DED00069C12 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC59781C5C9DED00069C12 /* QRCodeReaderViewController.m */; };
+		D3EC597F1C5C9DED00069C12 /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC597A1C5C9DED00069C12 /* QRToggleTorchButton.m */; };
+		D3F46E3D1C47DA7000E1344D /* TabBarHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F46E3C1C47DA7000E1344D /* TabBarHomeViewController.m */; };
+		D3F46E541C47E68D00E1344D /* QRScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F46E531C47E68D00E1344D /* QRScannerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D33544441C46CBFB00C3D905 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D33544451C46CBFB00C3D905 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D38129951CB1BC4C00FC3C4E /* ScanDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanDataTableViewController.h; sourceTree = "<group>"; };
+		D38129961CB1BC4C00FC3C4E /* ScanDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanDataTableViewController.m; sourceTree = "<group>"; };
+		D38129981CB1BF5500FC3C4E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D3A4DF701C468B80000BAFEA /* TEDxVITPune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TEDxVITPune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A4DF741C468B80000BAFEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3A4DF761C468B80000BAFEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3A4DF771C468B80000BAFEA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D3A4DF7A1C468B80000BAFEA /* TEDxVITPune.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TEDxVITPune.xcdatamodel; sourceTree = "<group>"; };
-		D3A4DF7C1C468B80000BAFEA /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		D3A4DF7D1C468B80000BAFEA /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		D3A4DF7F1C468B80000BAFEA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		D3A4DF801C468B80000BAFEA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D3A4DF831C468B80000BAFEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3A4DF851C468B80000BAFEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3A4DF881C468B80000BAFEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3A4DF8A1C468B80000BAFEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3BA167F1C480DFB009BA603 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D3EC59701C5C9DED00069C12 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		D3EC59711C5C9DED00069C12 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		D3EC59721C5C9DED00069C12 /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		D3EC59731C5C9DED00069C12 /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
+		D3EC59741C5C9DED00069C12 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		D3EC59751C5C9DED00069C12 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		D3EC59761C5C9DED00069C12 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		D3EC59771C5C9DED00069C12 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		D3EC59781C5C9DED00069C12 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		D3EC59791C5C9DED00069C12 /* QRToggleTorchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRToggleTorchButton.h; sourceTree = "<group>"; };
+		D3EC597A1C5C9DED00069C12 /* QRToggleTorchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRToggleTorchButton.m; sourceTree = "<group>"; };
+		D3F46E3B1C47DA7000E1344D /* TabBarHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarHomeViewController.h; sourceTree = "<group>"; };
+		D3F46E3C1C47DA7000E1344D /* TabBarHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarHomeViewController.m; sourceTree = "<group>"; };
+		D3F46E521C47E68D00E1344D /* QRScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScannerViewController.h; sourceTree = "<group>"; };
+		D3F46E531C47E68D00E1344D /* QRScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScannerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38129991CB1BF5500FC3C4E /* CoreData.framework in Frameworks */,
+				D3BA16801C480DFB009BA603 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +91,17 @@
 		D3A4DF721C468B80000BAFEA /* TEDxVITPune */ = {
 			isa = PBXGroup;
 			children = (
+				D3EC596F1C5C9DED00069C12 /* QRCodeReaderViewController */,
 				D3A4DF761C468B80000BAFEA /* AppDelegate.h */,
 				D3A4DF771C468B80000BAFEA /* AppDelegate.m */,
-				D3A4DF7C1C468B80000BAFEA /* MasterViewController.h */,
-				D3A4DF7D1C468B80000BAFEA /* MasterViewController.m */,
-				D3A4DF7F1C468B80000BAFEA /* DetailViewController.h */,
-				D3A4DF801C468B80000BAFEA /* DetailViewController.m */,
+				D33544441C46CBFB00C3D905 /* HomeViewController.h */,
+				D33544451C46CBFB00C3D905 /* HomeViewController.m */,
+				D3F46E3B1C47DA7000E1344D /* TabBarHomeViewController.h */,
+				D3F46E3C1C47DA7000E1344D /* TabBarHomeViewController.m */,
+				D3F46E521C47E68D00E1344D /* QRScannerViewController.h */,
+				D3F46E531C47E68D00E1344D /* QRScannerViewController.m */,
+				D38129951CB1BC4C00FC3C4E /* ScanDataTableViewController.h */,
+				D38129961CB1BC4C00FC3C4E /* ScanDataTableViewController.m */,
 				D3A4DF821C468B80000BAFEA /* Main.storyboard */,
 				D3A4DF851C468B80000BAFEA /* Assets.xcassets */,
 				D3A4DF871C468B80000BAFEA /* LaunchScreen.storyboard */,
@@ -82,9 +115,29 @@
 		D3A4DF731C468B80000BAFEA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D38129981CB1BF5500FC3C4E /* CoreData.framework */,
+				D3BA167F1C480DFB009BA603 /* AudioToolbox.framework */,
 				D3A4DF741C468B80000BAFEA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3EC596F1C5C9DED00069C12 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D3EC59701C5C9DED00069C12 /* QRCameraSwitchButton.h */,
+				D3EC59711C5C9DED00069C12 /* QRCameraSwitchButton.m */,
+				D3EC59721C5C9DED00069C12 /* QRCodeReader.h */,
+				D3EC59731C5C9DED00069C12 /* QRCodeReader.m */,
+				D3EC59741C5C9DED00069C12 /* QRCodeReaderDelegate.h */,
+				D3EC59751C5C9DED00069C12 /* QRCodeReaderView.h */,
+				D3EC59761C5C9DED00069C12 /* QRCodeReaderView.m */,
+				D3EC59771C5C9DED00069C12 /* QRCodeReaderViewController.h */,
+				D3EC59781C5C9DED00069C12 /* QRCodeReaderViewController.m */,
+				D3EC59791C5C9DED00069C12 /* QRToggleTorchButton.h */,
+				D3EC597A1C5C9DED00069C12 /* QRToggleTorchButton.m */,
+			);
+			path = QRCodeReaderViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,7 +166,7 @@
 		D3A4DF681C468B7F000BAFEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Yash Gorana";
 				TargetAttributes = {
 					D3A4DF6F1C468B7F000BAFEA = {
@@ -158,11 +211,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A4DF811C468B80000BAFEA /* DetailViewController.m in Sources */,
-				D3A4DF7E1C468B80000BAFEA /* MasterViewController.m in Sources */,
+				D3F46E541C47E68D00E1344D /* QRScannerViewController.m in Sources */,
+				D3EC597F1C5C9DED00069C12 /* QRToggleTorchButton.m in Sources */,
+				D3EC597D1C5C9DED00069C12 /* QRCodeReaderView.m in Sources */,
 				D3A4DF781C468B80000BAFEA /* AppDelegate.m in Sources */,
 				D3A4DF751C468B80000BAFEA /* main.m in Sources */,
+				D3EC597E1C5C9DED00069C12 /* QRCodeReaderViewController.m in Sources */,
+				D38129971CB1BC4C00FC3C4E /* ScanDataTableViewController.m in Sources */,
 				D3A4DF7B1C468B80000BAFEA /* TEDxVITPune.xcdatamodeld in Sources */,
+				D3EC597B1C5C9DED00069C12 /* QRCameraSwitchButton.m in Sources */,
+				D33544461C46CBFB00C3D905 /* HomeViewController.m in Sources */,
+				D3EC597C1C5C9DED00069C12 /* QRCodeReader.m in Sources */,
+				D3F46E3D1C47DA7000E1344D /* TabBarHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +261,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -244,8 +306,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -272,10 +336,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 959Y4T6PZ9;
 				INFOPLIST_FILE = TEDxVITPune/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.TEDxVITPune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -283,10 +351,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 959Y4T6PZ9;
 				INFOPLIST_FILE = TEDxVITPune/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.TEDxVITPune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -309,6 +381,7 @@
 				D3A4DF8F1C468B80000BAFEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
